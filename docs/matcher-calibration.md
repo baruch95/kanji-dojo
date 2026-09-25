@@ -1,10 +1,10 @@
 # M2 matcher calibration — evidence pending
 
-The `m2-provisional-1` matcher implements the starting table in `handwriting-spec.md`. No threshold was adjusted against a real handwriting set. The ten-character generated dataset is `calibration-10-v1`.
+The current `m2-provisional-2` matcher implements the owner-adjusted table in `handwriting-spec.md`. The owner reported that 50% was too strict in practice and 10% was usable, so the new default 50% uses the former 10% geometric limits. No threshold has been adjusted against a labeled handwriting set. The ten-character generated dataset is `calibration-10-v1`.
 
 ## Evidence available
 
-- Synthetic canonical references: 10/10 accepted at accuracy 50. The designated reversed-first-stroke variants: 0/10 accepted at accuracy 0. 十 has additional count, reversal, swap, and degenerate tests at 0/50/100.
+- Synthetic canonical references: 10/10 accepted at accuracy 50. The designated reversed-first-stroke variants: 0/10 accepted at accuracy 0. 十 has additional count, reversal, swap, and degenerate tests at 0/50/100. A modest whole-character shift now passes at 50 while gross displacement still fails.
 - The owner reports that correct and incorrect 十 attempts were judged accurately on an iPad Air M1 with MetaPen and latest iPadOS, without an exact version or counts. This is an informal device report, not a labeled dataset.
 - Browser automation: twelve practice and developer-capture flows pass across Chromium and WebKit after the new matcher was connected. These are scripted pointer events, not natural handwriting.
 

@@ -66,11 +66,11 @@ Raised by / date: Codex M2 implementation, 2026-09-25
 Milestone / requirements / files: M2.3; R-07; `docs/handwriting-spec.md`, `docs/matcher-calibration.md`
 Question and evidence: The owner reports accurate correct/incorrect 十 feedback on iPad Air M1 with MetaPen, but no labeled recordings, counts, exact iPadOS version, second writer, or nine-character natural attempts are available. The required held-out calibration cannot be computed.
 Options and tradeoffs: Collect the specified fixture set with the ten-character developer capture surface, or provide independently labeled compatible files from external sessions. Omitting the set leaves matcher thresholds uncalibrated.
-Recommendation / temporary assumption: Keep `m2-provisional-1` thresholds unchanged; perform the writer/session split and held-out analysis once recordings are available. Do not mark M2 gate complete from synthetic tests.
+Recommendation / temporary assumption: Initially keep `m2-provisional-1` thresholds unchanged; perform the writer/session split and held-out analysis once recordings are available. Do not mark M2 gate complete from synthetic tests.
 Blocking: M2 calibration gate and release.
 Independent work that can continue: Data conversion, schema validation, pure matcher tests, and downstream pure domain work using the provisional versioned contract.
 Answer (Astra/owner, date): Pending.
-Follow-through / changed documents / validation: Pending fixture collection and report.
+Follow-through / changed documents / validation: Owner later reported 50% too strict and 10% usable. `m2-provisional-2` provisionally moves the default geometric limits to the former 10% level (D-20); fixture collection and held-out report remain pending.
 
 ## Q-005 — Fifty-card editorial review
 
@@ -84,3 +84,16 @@ Blocking: M6 editorial gate and release claim; software implementation can conti
 Independent work that can continue: FSRS, persistence, sessions, 50-vector generation, PWA, and browser tests.
 Answer (Astra/owner, date): Pending.
 Follow-through / changed documents / validation: Pending editorial review record.
+
+## Q-006 — Default strictness after owner feedback
+
+Status: OPEN
+Raised by / date: Codex post-M7 adjustment, 2026-09-25
+Milestone / requirements / files: R-07, R-13; `src/matching/matcher.ts`, `docs/handwriting-spec.md`, `docs/matcher-calibration.md`
+Question and evidence: The owner reports that the current 50% setting rejects too much handwriting and that about 10% is usable. No labeled attempts were supplied, so the exact geometry limits and false-acceptance tradeoff remain unmeasured.
+Options and tradeoffs: Move the default 50% limits to the old 10% level while preserving hard gates, lower the saved default setting, or wait for calibration. The first option improves the existing 50% experience without mutating a user's preference; its error rates remain unknown.
+Recommendation / temporary assumption: Use the old 10% geometric limits at the new 50% midpoint in `m2-provisional-2`, keep 0% and 100% endpoints and hard gates, then calibrate later with independent natural attempts. This is reversible and versioned.
+Blocking: no for the requested UI/default-tolerance change; release calibration remains blocked by Q-004.
+Independent work that can continue: Implement the action-button placement, run structural regressions, and document the provisional matcher change.
+Answer (Astra/owner, date): Pending detailed calibration feedback; owner supplied the observed usability problem.
+Follow-through / changed documents / validation: See D-20 and `docs/matcher-calibration.md`.

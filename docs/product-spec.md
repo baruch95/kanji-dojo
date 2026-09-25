@@ -51,7 +51,7 @@ Learning presentation:
 2. **Copy:** complete static reference as a faint guide under the ink inside the writing square; no automatic animation. The guide is less prominent than Trace.
 3. **Recall:** same concealed presentation as review. Label “Learning · recall”; do not carry hidden SVG nodes, target text, or alt text into its accessible tree.
 
-Undo, Clear, and Check remain stable in position. Minimum target size is 44 × 44 CSS pixels. While a stroke is active or a save is pending, disable destructive attempt controls and Check. Check is disabled for an empty canvas. A small tap counts as a completed input stroke; the matcher decides if it is a valid short stroke. Do not grade on reaching an expected number of strokes.
+Undo, Clear, and the primary action remain stable in position. The primary action reads Check before submission, Retry save if persistence fails, then Continue (or Start learning/Finish session) after a committed result. Minimum target size is 44 × 44 CSS pixels. While a stroke is active or a save is pending, disable destructive attempt controls. Check is disabled for an empty canvas. A small tap counts as a completed input stroke; the matcher decides if it is a valid short stroke. Do not grade on reaching an expected number of strokes.
 
 The review canvas gives no pre-submission correctness signals, including error colors or “N strokes remaining.” Assisted Trace/Copy may tint an obviously poor completed stroke as advisory feedback; do not erase/reject it automatically. All submitted attempts receive a full final check. Recall has no live geometry feedback.
 
@@ -59,7 +59,7 @@ The review canvas gives no pre-submission correctness signals, including error c
 
 After Check, freeze ink and controls. Show pass/fail in text, with relevant user strokes marked where possible. Color alone is insufficient. Avoid displaying a numeric handwriting skill score. Use cautious diagnostics such as “Check the direction of stroke 2”; do not label an uncertain diagnosis as certain.
 
-Persist the grade before presenting it as saved. Continue advances to the committed next learning step or card. A failed review has already entered learning in persistent state; its result button is “Start learning.” Relearning graduation completes that session item but leaves the earlier Again schedule intact.
+Persist the grade before presenting it as saved. The Check button changes to Continue in the same position and advances to the committed next learning step or card. A failed review has already entered learning in persistent state; its action label is “Start learning.” Relearning graduation completes that session item but leaves the earlier Again schedule intact.
 
 End Session is always available when no transaction is pending. If unsubmitted ink exists, explain that it will be discarded and allow canceling. Completed grades and learning steps remain saved. No rating is assigned for ending, cancellation, backgrounding, or reload. Reload restores the last committed session state/result with a blank unsubmitted canvas; raw ink is intentionally ephemeral.
 

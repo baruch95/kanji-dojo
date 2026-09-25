@@ -1,7 +1,7 @@
 import type { CapturedStroke, DiagnosticCode, MatchResult, Point, ReferenceStroke } from '../domain/handwriting'
 import { resample } from './basicMatcher'
 
-export const MATCHER_CONFIG_VERSION = 'm2-provisional-1'
+export const MATCHER_CONFIG_VERSION = 'm2-provisional-2'
 export type MatcherOutcome =
   | Readonly<{ kind: 'match'; result: MatchResult }>
   | Readonly<{ kind: 'unsubmitted' }>
@@ -10,7 +10,7 @@ export type MatcherOutcome =
 type Thresholds = Readonly<{ endpoint: number; mean: number; p90: number; logLength: number; structure: number }>
 const knots: readonly Thresholds[] = [
   { endpoint: 0.22, mean: 0.16, p90: 0.24, logLength: 0.90, structure: 0.18 },
-  { endpoint: 0.14, mean: 0.10, p90: 0.16, logLength: 0.65, structure: 0.12 },
+  { endpoint: 0.204, mean: 0.148, p90: 0.224, logLength: 0.85, structure: 0.168 },
   { endpoint: 0.07, mean: 0.05, p90: 0.09, logLength: 0.40, structure: 0.07 },
 ]
 const dist = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y)

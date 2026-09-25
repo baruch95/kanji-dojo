@@ -50,19 +50,19 @@ The following are initial engineering constants, not established pedagogical tru
 
 Similar adjacent strokes can be hard to distinguish geometrically. Do not claim perfect order recognition from these heuristics. Add swapped-stroke fixtures, especially for 二/三/川, and escalate any systematic gross-order escapes. Use the canonical reference sequence only; additional valid sequences need explicit dataset entries and tests in a future change.
 
-## Soft thresholds: provisional starting table
+## Soft thresholds: provisional owner-adjusted table
 
 Set `s = accuracy/100`. Interpolate linearly between 0, 50, and 100. Lower threshold always means stricter. Do not round metrics before comparison; boundary equality passes. Clamp user setting to integer 0–100 at its input boundary; invalid persisted settings trigger validation/recovery rather than hidden coercion.
 
 | Maximum permitted metric | 0% | 50% default | 100% |
 | --- | --- | --- | --- |
-| Start distance and end distance, each | 0.22 | 0.14 | 0.07 |
-| Mean ordered sample distance | 0.16 | 0.10 | 0.05 |
-| p90 ordered sample distance | 0.24 | 0.16 | 0.09 |
-| Absolute log(user length / reference length) | 0.90 | 0.65 | 0.40 |
-| Whole-character bounding-box edge error | 0.18 | 0.12 | 0.07 |
+| Start distance and end distance, each | 0.22 | 0.204 | 0.07 |
+| Mean ordered sample distance | 0.16 | 0.148 | 0.05 |
+| p90 ordered sample distance | 0.24 | 0.224 | 0.09 |
+| Absolute log(user length / reference length) | 0.90 | 0.85 | 0.40 |
+| Whole-character bounding-box edge error | 0.18 | 0.168 | 0.07 |
 
-For p90, sort 64 distances ascending and use zero-based index `ceil(0.9*64)-1`. This metric and all sampling choices belong to the versioned matcher config. Increasing strictness must never turn a failure into a pass for the same attempt. Even 100% tolerates some geometric variation; 0% never disables hard gates.
+The 50% column in `m2-provisional-2` matches the former 10% interpolated limits after the owner reported that 50% rejected too much natural writing while 10% was usable. This is an owner-driven provisional adjustment, not measured calibration. For p90, sort 64 distances ascending and use zero-based index `ceil(0.9*64)-1`. This metric and all sampling choices belong to the versioned matcher config. Increasing strictness must never turn a failure into a pass for the same attempt. Even 100% tolerates some geometric variation; 0% never disables hard gates.
 
 ## Calibration and evidence
 

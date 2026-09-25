@@ -4,6 +4,10 @@ Meaningful product and architecture changes are recorded here. The first applica
 
 ## Unreleased
 
+### Changed
+
+- The Check control becomes Continue, Start learning, Finish session, or Retry save in the same place after submission. Provisional matcher `m2-provisional-2` makes the 50% geometric limits comparable to the former 10% level following owner feedback; hard stroke rules remain fixed. Updating from the prior matcher safely ends an active session while preserving card progress.
+
 ### Added
 
 - M3–M7 software, published on GitHub Pages from `7fbd78c`: Trace/Copy/Recall/Review with fading under-ink guide, FSRS Good/Again scheduling, atomic IndexedDB progress, session quotas/resume/settings, 50 pinned vector cards, and a scoped offline PWA with deferred updates. Calibration and editorial gates remain open.

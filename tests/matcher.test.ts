@@ -63,4 +63,12 @@ describe('M2 dataset and matcher', () => {
       }
     }
   })
+
+  it('accepts modest whole-character drift at the new default but still rejects gross displacement', () => {
+    const modest = exact.map((stroke) => capture(stroke.points.map((point) => ({ x: point.x + 0.125, y: point.y, t: point.t }))))
+    const gross = exact.map((stroke) => capture(stroke.points.map((point) => ({ x: point.x + 0.4, y: point.y, t: point.t }))))
+    expect(result(modest, 50)).toMatchObject({ kind: 'match', result: { accepted: true } })
+    expect(result(modest, 100)).toMatchObject({ kind: 'match', result: { accepted: false } })
+    expect(result(gross, 0)).toMatchObject({ kind: 'match', result: { accepted: false } })
+  })
 })

@@ -4,7 +4,7 @@ A focused iPad writing trainer: see an English meaning and kana reading, then wr
 
 ## Current status
 
-**M3–M7 software published; release gates remain open.** The app now offers 50 writing cards, guided Trace, faint-guide Copy, blank Recall and Review, FSRS scheduling, IndexedDB progress, intentional sessions, and an offline-capable Pages build. The kanji guide sits beneath the ink and fades by stage. The M3–M7 app is live at [GitHub Pages](https://baruch95.github.io/kanji-dojo/) from commit `7fbd78c`. The 50 meaning/kana cues await editorial review (Q-005), and real handwriting calibration was deferred by the owner until after M7 (Q-004). The owner tested the earlier 十 lab on iPad Air M1 with MetaPen; the new session/PWA flows still need device testing (Q-002).
+**M3–M7 software published; release gates remain open.** The app offers 50 writing cards, guided Trace, faint-guide Copy, blank Recall and Review, FSRS scheduling, IndexedDB progress, intentional sessions, and an offline-capable Pages build. The kanji guide sits beneath the ink and fades by stage. [GitHub Pages](https://baruch95.github.io/kanji-dojo/) hosts the app. The primary action changes from Check to Continue in place, and provisional matcher `m2-provisional-2` relaxes the default geometric limits following owner feedback. The 50 meaning/kana cues await editorial review (Q-005), and real handwriting calibration was deferred by the owner until after M7 (Q-004). The owner tested the earlier 十 lab on iPad Air M1 with MetaPen; the new session/PWA flows still need device testing (Q-002).
 
 The intended release is `0.1.0`. Current matcher thresholds are provisional, and a browser passing automated checks is not physical iPad evidence.
 

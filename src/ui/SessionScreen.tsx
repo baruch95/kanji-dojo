@@ -44,6 +44,9 @@ export function SessionScreen({ session, progress, definition, snapshot, service
   const stage = session.result ? session.result.submittedMode === 'review' ? 'review' : session.result.submittedStep ?? 'trace' : progress.mode === 'review' ? 'review' : progress.step
   const guideVisible = stage === 'trace' || stage === 'copy' || isResult
   const guideOpacity = isResult ? 0.32 : stage === 'trace' ? 0.38 : 0.13
+  const actionLabel = isResult
+    ? session.result!.submittedMode === 'review' && !session.result!.accepted ? 'Start learning' : session.result!.nextAction === 'session-complete' ? 'Finish session' : 'Continue'
+    : pending ? 'Retry save' : 'Check'
 
   function paint() {
     frameRef.current = null
@@ -157,15 +160,13 @@ export function SessionScreen({ session, progress, definition, snapshot, service
         <div className="writing-actions session-actions">
           <button type="button" onClick={() => { controller.undo(); changed() }} disabled={isResult || !!pending || working || controller.isActive || controller.strokes.length === 0}>Undo</button>
           <button type="button" onClick={() => { controller.clear(); changed() }} disabled={isResult || !!pending || working || controller.isActive || controller.strokes.length === 0}>Clear</button>
-          <button className="primary-action" type="button" onClick={check} disabled={isResult || !!pending || working || controller.isActive || controller.strokes.length === 0}>Check</button>
+          <button className="primary-action" type="button" onClick={() => { if (isResult) void next(); else if (pending) void submit(pending); else check() }} disabled={working || controller.isActive || (!isResult && !pending && controller.strokes.length === 0)}>{actionLabel}</button>
         </div>
         {stage === 'trace' && !isResult && <button type="button" className="secondary-action replay" onClick={() => { setAnimationStopped(false); setReplayKey((key) => key + 1) }} disabled={working || controller.isActive}>Replay stroke guide</button>}
         <div className={`practice-feedback${isResult ? session.result!.accepted ? ' success' : ' error' : ''}`} role="status" aria-live="polite" data-revision={revision}>
           <strong>{isResult ? session.result!.accepted ? 'Match saved' : 'Needs another try · saved' : pending ? 'Save failed' : 'Ready to write'}</strong>
           <p>{isResult ? session.result!.accepted ? 'Good work. Continue when ready.' : 'You can learn it again with the guide.' : message}</p>
           {isResult && !session.result!.accepted && <ul>{session.result!.diagnostics.map((diagnostic, index) => <li key={index}>{diagnostic.strokeIndex === undefined ? '' : `Stroke ${diagnostic.strokeIndex + 1}: `}{feedback[diagnostic.code]}</li>)}</ul>}
-          {pending && <button type="button" onClick={() => void submit(pending)} disabled={working}>Retry save</button>}
-          {isResult && <button type="button" className="primary-action continue-action" onClick={() => void next()} disabled={working}>{session.result!.submittedMode === 'review' && !session.result!.accepted ? 'Start learning' : session.result!.nextAction === 'session-complete' ? 'Finish session' : 'Continue'}</button>}
         </div>
       </div>
     </div>
