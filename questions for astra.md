@@ -38,9 +38,9 @@ Follow-through / changed documents / validation: Product specification, state ma
 Status: OPEN
 Raised by / date: Astra planning pass, 2026-09-25
 Milestone / requirements / files: M1/M8; R-06; `docs/test-plan.md`
-Question and evidence: Exact iPad model, iPadOS version, Pencil model, and compatible-stylus model are not yet known. Desktop emulation cannot establish palm behavior or handwriting quality.
+Question and evidence: Owner reports testing the published 十 prototype on iPad Air M1 with MetaPen and "latest" iPadOS; correct and incorrect feedback was accurate. The exact iPadOS version, attempt counts, pointer/palm details, and recorded fixtures remain unknown. Desktop emulation cannot establish these behaviors.
 Options and tradeoffs: Owner provides device test results/recordings, or a tester with suitable hardware runs the same protocol.
-Recommendation / temporary assumption: Continue software work; record exact physical devices and evidence before claiming support. Request a device test at the M1 gate.
+Recommendation / temporary assumption: Continue software work; record the exact OS version and protocol evidence before claiming full support.
 Blocking: release; physical-input part of M1 remains unverified until evidence exists.
 Independent work that can continue: Scaffold, import adapter, pure matcher, learning reducer, scheduler, and storage tests. Do not mark the hardware gate passed.
 Answer (Astra/owner, date): Pending.
@@ -58,3 +58,16 @@ Blocking: no; blocks an unsupported open-source licensing claim, not local imple
 Independent work that can continue: All implementation and third-party attribution work.
 Answer (Astra/owner, date): Pending.
 Follow-through / changed documents / validation: Update README and notices once the owner decides.
+
+## Q-004 — M2 handwriting calibration evidence
+
+Status: OPEN
+Raised by / date: Codex M2 implementation, 2026-09-25
+Milestone / requirements / files: M2.3; R-07; `docs/handwriting-spec.md`, `docs/matcher-calibration.md`
+Question and evidence: The owner reports accurate correct/incorrect 十 feedback on iPad Air M1 with MetaPen, but no labeled recordings, counts, exact iPadOS version, second writer, or nine-character natural attempts are available. The required held-out calibration cannot be computed.
+Options and tradeoffs: Collect the specified fixture set with the ten-character developer capture surface, or provide independently labeled compatible files from external sessions. Omitting the set leaves matcher thresholds uncalibrated.
+Recommendation / temporary assumption: Keep `m2-provisional-1` thresholds unchanged; perform the writer/session split and held-out analysis once recordings are available. Do not mark M2 gate complete from synthetic tests.
+Blocking: M2 calibration gate and release.
+Independent work that can continue: Data conversion, schema validation, pure matcher tests, and downstream pure domain work using the provisional versioned contract.
+Answer (Astra/owner, date): Pending.
+Follow-through / changed documents / validation: Pending fixture collection and report.

@@ -1,6 +1,6 @@
 # Active roadmap
 
-M0 is complete. M1's software slice is implemented; its physical iPad gate is pending. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
+M0 is complete. M1's software slice is implemented; the owner tested on iPad Air M1 with MetaPen, while a detailed device protocol remains pending. M2's software foundation is implemented; real handwriting calibration remains pending. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
 
 ## v0.1 required
 
@@ -13,8 +13,8 @@ M0 is complete. M1's software slice is implemented; its physical iPad gate is pe
 
 ### M2 — Dataset adapter and matcher
 
-- [ ] Build deterministic import/validation pipeline and freeze v1 content/matcher contracts.
-- [ ] Implement resampling, feature checks, hard gates, and monotonic accuracy thresholds.
+- [x] Build deterministic import/validation pipeline and freeze v1 content/matcher contracts.
+- [x] Implement resampling, feature checks, hard gates, and monotonic accuracy thresholds.
 - [ ] Calibrate on independently labeled real handwriting; meet the M2 gate or document a blocker.
 
 ### M3 — Learning and review UI

@@ -13,6 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "data:generate": "node scripts/data.mjs generate",
+    "data:validate": "node scripts/data.mjs validate",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview"
   },

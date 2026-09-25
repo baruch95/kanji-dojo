@@ -23,6 +23,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run test
+      - run: npm run data:validate
       - run: node scripts/generate-ten.mjs
       - run: git diff --exit-code -- src/data/generated/ten.ts
       - run: npx playwright install --with-deps chromium webkit

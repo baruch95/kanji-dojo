@@ -76,3 +76,14 @@ test('primary writing controls fit iPad-sized landscape and portrait viewports',
     expect(check!.y + check!.height).toBeLessThanOrEqual(viewport.height)
   }
 })
+
+test('developer calibration selector switches the reference and clears prior ink', async ({ page }) => {
+  await draw(page, across)
+  await page.getByText('Developer fixture export').click()
+  await page.getByLabel('Calibration character').selectOption('u65e5')
+  await expect(page.getByRole('heading', { name: 'Write 日' })).toBeVisible()
+  await expect(page.getByLabel('Writing surface for sun; day')).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Check' })).toBeDisabled()
+  await page.getByText('Calibration source gallery').click()
+  await expect(page.locator('.calibration-gallery figure')).toHaveCount(10)
+})

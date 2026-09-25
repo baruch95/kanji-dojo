@@ -4,7 +4,7 @@ A focused iPad writing trainer: see an English meaning and kana reading, then wr
 
 ## Current status
 
-**M1 prototype; physical-device gate pending.** The app has a one-kanji 十 practice lab with visible reference, pointer drawing, Undo/Clear/Check, and a basic ordered matcher. It does not save attempts or schedule reviews. Natural handwriting quality and Apple Pencil/compatible-stylus behavior have not been validated on a real iPad. Learning, full content, progress storage, and offline support remain future milestones.
+**M2 software foundation; calibration gate pending.** The app has a one-kanji 十 practice lab with visible reference, pointer drawing, Undo/Clear/Check, and a provisional full matcher. Ten characters now have generated reference data, but only 十 is shown in the practice UI. It does not save attempts or schedule reviews. The owner reports sensible correct/incorrect feedback on an iPad Air M1 with MetaPen; exact iPadOS version, counts, and recorded handwriting fixtures are pending. Learning, full content, progress storage, and offline support remain future milestones.
 
 The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS reviews, local progress, and offline practice on a static GitHub Pages site. Screenshots and measured browser support will be added when there is a working application.
 
@@ -17,7 +17,7 @@ The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS r
 
 Suggested next validation assignment:
 
-> Run the M1 physical iPad protocol in `docs/test-plan.md` with Apple Pencil and a compatible stylus, recording the exact device, OS, input behavior, and natural 十 attempts. Q-002 remains open until there is real hardware evidence. Do not commit, push, or deploy without the required approval.
+> Collect labeled natural handwriting for the M2 calibration set following `docs/handwriting-spec.md`; record the exact iPadOS version and test counts. Q-002 and Q-004 remain open. Do not commit, push, or deploy without the required approval.
 
 ## Documentation map
 
@@ -48,23 +48,25 @@ npm run dev -- --host 0.0.0.0
 npm run typecheck
 npm run lint
 npm run test
+npm run data:generate
+npm run data:validate
 npm run build
 npm run preview -- --host 0.0.0.0
 npx playwright install chromium webkit
 npm run test:e2e
 ```
 
-`test` runs once and exits; `npm run test:watch` is separate. `test:e2e` runs Chromium and WebKit browser flows after their binaries are installed. The developer-only fixture export is inside the practice lab when running `npm run dev`; it never uploads handwriting. The pinned 十 geometry can be regenerated with `node scripts/generate-ten.mjs`. Full data generation/validation commands arrive in M2. Ordinary drawing can be tested over LAN HTTP; PWA/device offline validation needs a trusted HTTPS origin.
+`test` runs once and exits; `npm run test:watch` is separate. `test:e2e` runs Chromium and WebKit browser flows after their binaries are installed. The developer-only fixture export is inside the practice lab when running `npm run dev`; it never uploads handwriting. `data:generate` uses only the pinned local SVGs and curated metadata; `data:validate` compares its deterministic result with the checked-in JSON. The older 十 generator remains for M1 reproducibility. Ordinary drawing can be tested over LAN HTTP; PWA/device offline validation needs a trusted HTTPS origin.
 
 ## Architecture overview
 
 React owns screens and accessible controls. A drawing adapter captures Pointer Events and renders ink. A pure TypeScript matcher compares ordered strokes with the known target. A separate learning state machine and FSRS adapter produce progress changes, saved atomically through an IndexedDB repository. Static content and mutable progress have separate schemas joined by stable IDs.
 
-The first slice uses one kanji, **十**, to prove drawing and order checking before expanding the application. No backend, accounts, paid APIs, arbitrary OCR, or sync are included.
+The practice screen uses **十**; the data and matcher foundation covers the ten M2 calibration characters. No backend, accounts, paid APIs, arbitrary OCR, or sync are included.
 
 ## Dataset and licensing
 
-KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. The M1 subset includes the pinned 十 source and [its notice](data/sources/kanjivg/NOTICE.md). Attribution is available under Settings → About data sources. Meaning and kana cues remain provisional until editorial review; KanjiVG is not a reading dictionary.
+KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. The M2 subset includes ten pinned SVGs and [their notice](data/sources/kanjivg/NOTICE.md). Attribution is available under Settings → About data sources. Meaning and kana cues remain provisional until editorial review; KanjiVG is not a reading dictionary.
 
 The project's own software license is not yet selected. Do not add a license on the owner's behalf or assume a dataset license determines the application code license.
 

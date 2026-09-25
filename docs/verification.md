@@ -25,3 +25,11 @@ Vite preview serves `dist/` at `/` even when the production build targets a repo
 - Fixture capture: developer-only local JSON export implemented; no real handwriting fixtures captured or committed.
 - Physical iPad/Apple Pencil/compatible-stylus validation: **not run**. Exact hardware, pointer behavior, ink latency, Check timing, and natural-attempt quality remain unknown (Q-002). The M1 hardware gate stays open.
 - Matcher: `m1-basic-1` is a proof of concept for 十. M2 calibration, complete hard/soft checks, and held-out accuracy gates are not yet met.
+
+## M2 software foundation — 2026-09-25
+
+- Owner device report: iPad Air M1, MetaPen, latest iPadOS (exact version not supplied). The owner reports that correct and incorrect attempts received accurate feedback. Number of attempts, exact test cases, latency, palm behavior, and exported recordings were not supplied. This is direct owner feedback, not a completed physical protocol or measured calibration set; Q-002 remains open.
+- Dataset: ten canonical KanjiVG SVGs at revision `422b5538595676da918c288a4230cb5e22a1ee7e` with pinned SHA-256 hashes. `npm run data:generate` and `npm run data:validate` passed, including a checked-in JSON comparison. Metadata is provisional pending M6 editorial review.
+- Matcher: `m2-provisional-1` implements hard count/order/direction/length gates, per-stroke geometric limits, structure, and monotonic 0–100 strictness. Tests use generated geometry and synthetic perturbations; no natural ten-character handwriting set is available. See `matcher-calibration.md` and Q-004.
+- Checks: `npm run typecheck`, `npm run lint`, `npm run test` (15 tests in 5 files), `npm run build`, and `npm run data:validate` passed. `npm run test:e2e` passed 12 Chromium/WebKit cases, including developer selection/gallery behavior, after local-server sandbox escalation. Initial sandbox run failed to bind port 4175 (`EPERM`), then the approved local run passed.
+- Physical ten-character calibration, independent writer split, held-out acceptance/rejection rates, and per-character inspection: not run. M2 gate remains open.
