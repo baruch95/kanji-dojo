@@ -6,7 +6,7 @@ Meaningful product and architecture changes are recorded here. The first applica
 
 ### Added
 
-- M3–M7 local software: Trace/Copy/Recall/Review with fading under-ink guide, FSRS Good/Again scheduling, atomic IndexedDB progress, session quotas/resume/settings, 50 pinned vector cards, and a scoped offline PWA with deferred updates. No M3–M7 commit or deployment yet; calibration and editorial gates remain open.
+- M3–M7 software, published on GitHub Pages from `7fbd78c`: Trace/Copy/Recall/Review with fading under-ink guide, FSRS Good/Again scheduling, atomic IndexedDB progress, session quotas/resume/settings, 50 pinned vector cards, and a scoped offline PWA with deferred updates. Calibration and editorial gates remain open.
 - M2 software foundation: ten pinned KanjiVG references, deterministic generated dataset with runtime validation and CI comparison, full provisional strictness matcher, and synthetic regression tests. Real handwriting calibration remains open.
 - Manual GitHub Pages workflow for the owner-requested M1 prototype publication; deployment remains distinct from the v0.1 release gates.
 - M1 software slice: pinned KanjiVG 十 source and attribution, generated normalized stroke reference, visible-reference writing lab, pointer capture and ink controls, a basic order/direction/shape comparison, local fixture export, and Chromium/WebKit browser tests. Physical iPad validation remains open.

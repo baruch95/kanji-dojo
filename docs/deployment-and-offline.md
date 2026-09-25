@@ -1,6 +1,6 @@
 # Static hosting and offline specification
 
-The owner published the M2 prototype on 2026-09-25. M3–M7 PWA and offline software are implemented locally, with a **manual** GitHub Pages workflow prepared. The live Pages revision is still M2 until a later approved commit, push, and deployment. The M8 physical-device, editorial, and handwriting gates remain open.
+The owner published the M2 prototype on 2026-09-25. M3–M7 PWA and offline software were committed as `7fbd78c` and published through the **manual** GitHub Pages workflow on 2026-09-25. The live URL is <https://baruch95.github.io/kanji-dojo/>. The M8 physical-device, editorial, and handwriting gates remain open.
 
 ## Base path and navigation
 

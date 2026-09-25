@@ -4,7 +4,7 @@ A focused iPad writing trainer: see an English meaning and kana reading, then wr
 
 ## Current status
 
-**M3–M7 software implemented locally; release gates remain open.** The app now offers 50 writing cards, guided Trace, faint-guide Copy, blank Recall and Review, FSRS scheduling, IndexedDB progress, intentional sessions, and an offline-capable Pages build. The kanji guide sits beneath the ink and fades by stage. These changes are uncommitted and have not been published; the live GitHub Pages site still runs M2. The 50 meaning/kana cues await editorial review (Q-005), and real handwriting calibration was deferred by the owner until after M7 (Q-004). The owner tested the earlier 十 lab on iPad Air M1 with MetaPen; the new session/PWA flows still need device testing (Q-002).
+**M3–M7 software published; release gates remain open.** The app now offers 50 writing cards, guided Trace, faint-guide Copy, blank Recall and Review, FSRS scheduling, IndexedDB progress, intentional sessions, and an offline-capable Pages build. The kanji guide sits beneath the ink and fades by stage. The M3–M7 app is live at [GitHub Pages](https://baruch95.github.io/kanji-dojo/) from commit `7fbd78c`. The 50 meaning/kana cues await editorial review (Q-005), and real handwriting calibration was deferred by the owner until after M7 (Q-004). The owner tested the earlier 十 lab on iPad Air M1 with MetaPen; the new session/PWA flows still need device testing (Q-002).
 
 The intended release is `0.1.0`. Current matcher thresholds are provisional, and a browser passing automated checks is not physical iPad evidence.
 
@@ -79,7 +79,7 @@ After a successful online load and confirmed offline cache readiness, the instal
 
 ## Build and GitHub Pages
 
-M0 established a static build in `dist/`. `.github/workflows/deploy-pages.yml` is a manually dispatched Pages workflow with M3–M7 checks. No M3–M7 revision has been deployed. The repository subpath build command is:
+M0 established a static build in `dist/`. `.github/workflows/deploy-pages.yml` is a manually dispatched Pages workflow with M3–M7 checks. The M3–M7 revision was published on 2026-09-25 after the workflow gates passed. The repository subpath build command is:
 
 ```sh
 VITE_BASE_PATH=/kanji-dojo/ npm run build
