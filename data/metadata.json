@@ -1,12 +1,402 @@
 [
-  {"character":"一","meaning":"one","kana":"いち","readingKind":"on","order":1,"source":"04e00.svg"},
-  {"character":"二","meaning":"two","kana":"に","readingKind":"on","order":2,"source":"04e8c.svg"},
-  {"character":"三","meaning":"three","kana":"さん","readingKind":"on","order":3,"source":"04e09.svg"},
-  {"character":"十","meaning":"ten","kana":"じゅう","readingKind":"on","order":10,"source":"05341.svg"},
-  {"character":"日","meaning":"sun; day","kana":"ひ","readingKind":"kun","order":13,"source":"065e5.svg"},
-  {"character":"月","meaning":"moon; month","kana":"つき","readingKind":"kun","order":14,"source":"06708.svg"},
-  {"character":"水","meaning":"water","kana":"みず","readingKind":"kun","order":16,"source":"06c34.svg"},
-  {"character":"木","meaning":"tree; wood","kana":"き","readingKind":"kun","order":17,"source":"06728.svg"},
-  {"character":"人","meaning":"person","kana":"ひと","readingKind":"kun","order":23,"source":"04eba.svg"},
-  {"character":"大","meaning":"large","kana":"だい","readingKind":"on","order":33,"source":"05927.svg"}
+  {
+    "character": "一",
+    "meaning": "one",
+    "kana": "いち",
+    "readingKind": "on",
+    "order": 1,
+    "source": "04e00.svg"
+  },
+  {
+    "character": "二",
+    "meaning": "two",
+    "kana": "に",
+    "readingKind": "on",
+    "order": 2,
+    "source": "04e8c.svg"
+  },
+  {
+    "character": "三",
+    "meaning": "three",
+    "kana": "さん",
+    "readingKind": "on",
+    "order": 3,
+    "source": "04e09.svg"
+  },
+  {
+    "character": "四",
+    "meaning": "four",
+    "kana": "よん",
+    "readingKind": "kun",
+    "order": 4,
+    "source": "056db.svg"
+  },
+  {
+    "character": "五",
+    "meaning": "five",
+    "kana": "ご",
+    "readingKind": "on",
+    "order": 5,
+    "source": "04e94.svg"
+  },
+  {
+    "character": "六",
+    "meaning": "six",
+    "kana": "ろく",
+    "readingKind": "on",
+    "order": 6,
+    "source": "0516d.svg"
+  },
+  {
+    "character": "七",
+    "meaning": "seven",
+    "kana": "なな",
+    "readingKind": "kun",
+    "order": 7,
+    "source": "04e03.svg"
+  },
+  {
+    "character": "八",
+    "meaning": "eight",
+    "kana": "はち",
+    "readingKind": "on",
+    "order": 8,
+    "source": "0516b.svg"
+  },
+  {
+    "character": "九",
+    "meaning": "nine",
+    "kana": "きゅう",
+    "readingKind": "on",
+    "order": 9,
+    "source": "04e5d.svg"
+  },
+  {
+    "character": "十",
+    "meaning": "ten",
+    "kana": "じゅう",
+    "readingKind": "on",
+    "order": 10,
+    "source": "05341.svg"
+  },
+  {
+    "character": "百",
+    "meaning": "hundred",
+    "kana": "ひゃく",
+    "readingKind": "on",
+    "order": 11,
+    "source": "0767e.svg"
+  },
+  {
+    "character": "千",
+    "meaning": "thousand",
+    "kana": "せん",
+    "readingKind": "on",
+    "order": 12,
+    "source": "05343.svg"
+  },
+  {
+    "character": "日",
+    "meaning": "sun; day",
+    "kana": "ひ",
+    "readingKind": "kun",
+    "order": 13,
+    "source": "065e5.svg"
+  },
+  {
+    "character": "月",
+    "meaning": "moon; month",
+    "kana": "つき",
+    "readingKind": "kun",
+    "order": 14,
+    "source": "06708.svg"
+  },
+  {
+    "character": "火",
+    "meaning": "fire",
+    "kana": "ひ",
+    "readingKind": "kun",
+    "order": 15,
+    "source": "0706b.svg"
+  },
+  {
+    "character": "水",
+    "meaning": "water",
+    "kana": "みず",
+    "readingKind": "kun",
+    "order": 16,
+    "source": "06c34.svg"
+  },
+  {
+    "character": "木",
+    "meaning": "tree; wood",
+    "kana": "き",
+    "readingKind": "kun",
+    "order": 17,
+    "source": "06728.svg"
+  },
+  {
+    "character": "金",
+    "meaning": "gold; metal",
+    "kana": "きん",
+    "readingKind": "on",
+    "order": 18,
+    "source": "091d1.svg"
+  },
+  {
+    "character": "土",
+    "meaning": "earth; soil",
+    "kana": "つち",
+    "readingKind": "kun",
+    "order": 19,
+    "source": "0571f.svg"
+  },
+  {
+    "character": "山",
+    "meaning": "mountain",
+    "kana": "やま",
+    "readingKind": "kun",
+    "order": 20,
+    "source": "05c71.svg"
+  },
+  {
+    "character": "川",
+    "meaning": "river",
+    "kana": "かわ",
+    "readingKind": "kun",
+    "order": 21,
+    "source": "05ddd.svg"
+  },
+  {
+    "character": "田",
+    "meaning": "rice field",
+    "kana": "た",
+    "readingKind": "kun",
+    "order": 22,
+    "source": "07530.svg"
+  },
+  {
+    "character": "人",
+    "meaning": "person",
+    "kana": "ひと",
+    "readingKind": "kun",
+    "order": 23,
+    "source": "04eba.svg"
+  },
+  {
+    "character": "口",
+    "meaning": "mouth",
+    "kana": "くち",
+    "readingKind": "kun",
+    "order": 24,
+    "source": "053e3.svg"
+  },
+  {
+    "character": "目",
+    "meaning": "eye",
+    "kana": "め",
+    "readingKind": "kun",
+    "order": 25,
+    "source": "076ee.svg"
+  },
+  {
+    "character": "耳",
+    "meaning": "ear",
+    "kana": "みみ",
+    "readingKind": "kun",
+    "order": 26,
+    "source": "08033.svg"
+  },
+  {
+    "character": "手",
+    "meaning": "hand",
+    "kana": "て",
+    "readingKind": "kun",
+    "order": 27,
+    "source": "0624b.svg"
+  },
+  {
+    "character": "足",
+    "meaning": "foot; leg",
+    "kana": "あし",
+    "readingKind": "kun",
+    "order": 28,
+    "source": "08db3.svg"
+  },
+  {
+    "character": "力",
+    "meaning": "power; strength",
+    "kana": "ちから",
+    "readingKind": "kun",
+    "order": 29,
+    "source": "0529b.svg"
+  },
+  {
+    "character": "女",
+    "meaning": "woman",
+    "kana": "おんな",
+    "readingKind": "kun",
+    "order": 30,
+    "source": "05973.svg"
+  },
+  {
+    "character": "男",
+    "meaning": "man",
+    "kana": "おとこ",
+    "readingKind": "kun",
+    "order": 31,
+    "source": "07537.svg"
+  },
+  {
+    "character": "子",
+    "meaning": "child",
+    "kana": "こ",
+    "readingKind": "kun",
+    "order": 32,
+    "source": "05b50.svg"
+  },
+  {
+    "character": "大",
+    "meaning": "large",
+    "kana": "だい",
+    "readingKind": "on",
+    "order": 33,
+    "source": "05927.svg"
+  },
+  {
+    "character": "小",
+    "meaning": "small",
+    "kana": "しょう",
+    "readingKind": "on",
+    "order": 34,
+    "source": "05c0f.svg"
+  },
+  {
+    "character": "中",
+    "meaning": "inside; middle",
+    "kana": "なか",
+    "readingKind": "kun",
+    "order": 35,
+    "source": "04e2d.svg"
+  },
+  {
+    "character": "上",
+    "meaning": "above; up",
+    "kana": "うえ",
+    "readingKind": "kun",
+    "order": 36,
+    "source": "04e0a.svg"
+  },
+  {
+    "character": "下",
+    "meaning": "below; down",
+    "kana": "した",
+    "readingKind": "kun",
+    "order": 37,
+    "source": "04e0b.svg"
+  },
+  {
+    "character": "左",
+    "meaning": "left",
+    "kana": "ひだり",
+    "readingKind": "kun",
+    "order": 38,
+    "source": "05de6.svg"
+  },
+  {
+    "character": "右",
+    "meaning": "right",
+    "kana": "みぎ",
+    "readingKind": "kun",
+    "order": 39,
+    "source": "053f3.svg"
+  },
+  {
+    "character": "本",
+    "meaning": "book; origin",
+    "kana": "ほん",
+    "readingKind": "on",
+    "order": 40,
+    "source": "0672c.svg"
+  },
+  {
+    "character": "学",
+    "meaning": "study; learning",
+    "kana": "がく",
+    "readingKind": "on",
+    "order": 41,
+    "source": "05b66.svg"
+  },
+  {
+    "character": "生",
+    "meaning": "life; birth",
+    "kana": "せい",
+    "readingKind": "on",
+    "order": 42,
+    "source": "0751f.svg"
+  },
+  {
+    "character": "先",
+    "meaning": "ahead; previous",
+    "kana": "さき",
+    "readingKind": "kun",
+    "order": 43,
+    "source": "05148.svg"
+  },
+  {
+    "character": "年",
+    "meaning": "year",
+    "kana": "とし",
+    "readingKind": "kun",
+    "order": 44,
+    "source": "05e74.svg"
+  },
+  {
+    "character": "白",
+    "meaning": "white",
+    "kana": "しろ",
+    "readingKind": "kun",
+    "order": 45,
+    "source": "0767d.svg"
+  },
+  {
+    "character": "赤",
+    "meaning": "red",
+    "kana": "あか",
+    "readingKind": "kun",
+    "order": 46,
+    "source": "08d64.svg"
+  },
+  {
+    "character": "青",
+    "meaning": "blue",
+    "kana": "あお",
+    "readingKind": "kun",
+    "order": 47,
+    "source": "09752.svg"
+  },
+  {
+    "character": "天",
+    "meaning": "sky; heaven",
+    "kana": "てん",
+    "readingKind": "on",
+    "order": 48,
+    "source": "05929.svg"
+  },
+  {
+    "character": "雨",
+    "meaning": "rain",
+    "kana": "あめ",
+    "readingKind": "kun",
+    "order": 49,
+    "source": "096e8.svg"
+  },
+  {
+    "character": "林",
+    "meaning": "grove",
+    "kana": "はやし",
+    "readingKind": "kun",
+    "order": 50,
+    "source": "06797.svg"
+  }
 ]

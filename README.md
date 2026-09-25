@@ -4,9 +4,9 @@ A focused iPad writing trainer: see an English meaning and kana reading, then wr
 
 ## Current status
 
-**M2 software foundation; calibration gate pending.** The app has a one-kanji 十 practice lab with visible reference, pointer drawing, Undo/Clear/Check, and a provisional full matcher. Ten characters now have generated reference data, but only 十 is shown in the practice UI. It does not save attempts or schedule reviews. The owner reports sensible correct/incorrect feedback on an iPad Air M1 with MetaPen; exact iPadOS version, counts, and recorded handwriting fixtures are pending. Learning, full content, progress storage, and offline support remain future milestones.
+**M3–M7 software implemented locally; release gates remain open.** The app now offers 50 writing cards, guided Trace, faint-guide Copy, blank Recall and Review, FSRS scheduling, IndexedDB progress, intentional sessions, and an offline-capable Pages build. The kanji guide sits beneath the ink and fades by stage. These changes are uncommitted and have not been published; the live GitHub Pages site still runs M2. The 50 meaning/kana cues await editorial review (Q-005), and real handwriting calibration was deferred by the owner until after M7 (Q-004). The owner tested the earlier 十 lab on iPad Air M1 with MetaPen; the new session/PWA flows still need device testing (Q-002).
 
-The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS reviews, local progress, and offline practice on a static GitHub Pages site. Screenshots and measured browser support will be added when there is a working application.
+The intended release is `0.1.0`. Current matcher thresholds are provisional, and a browser passing automated checks is not physical iPad evidence.
 
 ## Start here
 
@@ -17,7 +17,7 @@ The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS r
 
 Suggested next validation assignment:
 
-> Collect labeled natural handwriting for the M2 calibration set following `docs/handwriting-spec.md`; record the exact iPadOS version and test counts. Q-002 and Q-004 remain open. Do not commit, push, or deploy without the required approval.
+> Review all 50 meaning/kana cues and stroke animations with a competent Japanese reader using `docs/dataset-review.md`, then collect labeled natural handwriting for calibration. Record the exact iPadOS version and device test counts. Q-002, Q-004, and Q-005 remain open. Do not commit, push, or deploy without the required approval.
 
 ## Documentation map
 
@@ -54,6 +54,7 @@ npm run build
 npm run preview -- --host 0.0.0.0
 npx playwright install chromium webkit
 npm run test:e2e
+npm run test:pwa
 ```
 
 `test` runs once and exits; `npm run test:watch` is separate. `test:e2e` runs Chromium and WebKit browser flows after their binaries are installed. The developer-only fixture export is inside the practice lab when running `npm run dev`; it never uploads handwriting. `data:generate` uses only the pinned local SVGs and curated metadata; `data:validate` compares its deterministic result with the checked-in JSON. The older 十 generator remains for M1 reproducibility. Ordinary drawing can be tested over LAN HTTP; PWA/device offline validation needs a trusted HTTPS origin.
@@ -62,11 +63,11 @@ npm run test:e2e
 
 React owns screens and accessible controls. A drawing adapter captures Pointer Events and renders ink. A pure TypeScript matcher compares ordered strokes with the known target. A separate learning state machine and FSRS adapter produce progress changes, saved atomically through an IndexedDB repository. Static content and mutable progress have separate schemas joined by stable IDs.
 
-The practice screen uses **十**; the data and matcher foundation covers the ten M2 calibration characters. No backend, accounts, paid APIs, arbitrary OCR, or sync are included.
+The primary session screen uses all 50 generated characters; the developer lab retains the earlier 十 fixture tools. No backend, accounts, paid APIs, arbitrary OCR, or sync are included.
 
 ## Dataset and licensing
 
-KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. The M2 subset includes ten pinned SVGs and [their notice](data/sources/kanjivg/NOTICE.md). Attribution is available under Settings → About data sources. Meaning and kana cues remain provisional until editorial review; KanjiVG is not a reading dictionary.
+KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. The 50-card set includes 50 pinned SVGs and [their notice](data/sources/kanjivg/NOTICE.md). Attribution is available under Settings → About data sources. Meaning and kana cues remain provisional until editorial review; KanjiVG is not a reading dictionary.
 
 The project's own software license is not yet selected. Do not add a license on the owner's behalf or assume a dataset license determines the application code license.
 
@@ -78,13 +79,13 @@ After a successful online load and confirmed offline cache readiness, the instal
 
 ## Build and GitHub Pages
 
-M0 established a static build in `dist/`. The owner requested early publication of the M1 prototype, so `.github/workflows/deploy-pages.yml` is a manually dispatched Pages workflow. The repository subpath build command is:
+M0 established a static build in `dist/`. `.github/workflows/deploy-pages.yml` is a manually dispatched Pages workflow with M3–M7 checks. No M3–M7 revision has been deployed. The repository subpath build command is:
 
 ```sh
 VITE_BASE_PATH=/kanji-dojo/ npm run build
 ```
 
-`VITE_BASE_PATH` is validated by Vite configuration. Navigation uses hash routes. To test a subpath build locally, mount the contents of `dist/` at that path on a static server; Vite preview serves `dist/` at its root. [Deployment instructions](docs/deployment-and-offline.md) distinguish this early prototype from the future PWA and full release verification. The Pages workflow has no automatic push trigger.
+`VITE_BASE_PATH` is validated by Vite configuration. Navigation uses hash routes. To test a subpath build locally, mount the contents of `dist/` at that path on a static server; Vite preview serves `dist/` at its root. [Deployment instructions](docs/deployment-and-offline.md) cover the PWA and remaining release verification. The Pages workflow has no automatic push trigger.
 
 ## Limitations and future integration
 

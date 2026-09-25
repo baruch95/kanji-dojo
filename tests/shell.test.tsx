@@ -8,11 +8,11 @@ afterEach(() => {
 })
 
 describe('M0 shell navigation', () => {
-  it('shows the one-kanji prototype and returns home for an unknown route', () => {
+  it('loads local progress and returns home for an unknown route', async () => {
     window.location.hash = '#/'
     render(<App />)
-    expect(screen.getByRole('link', { name: 'Start practice' })).toHaveAttribute('href', '#/session')
-    expect(screen.getByText(/does not save progress/i)).toBeInTheDocument()
+    expect(await screen.findByRole('button', { name: 'Start session' })).toBeDisabled()
+    expect(screen.getByText(/new available/i)).toBeInTheDocument()
     window.location.hash = '#/unexpected'
     fireEvent(window, new Event('hashchange'))
     expect(screen.getByRole('heading', { name: 'Remember by writing.' })).toBeInTheDocument()

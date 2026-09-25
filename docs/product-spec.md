@@ -47,8 +47,8 @@ Show a concise meaning and selected kana readings, labeled as cues. Keep cue sel
 
 Learning presentation:
 
-1. **Trace:** faint complete SVG underlay inside canvas; animate strokes in order once on entry, then allow tracing with underlay remaining. Replay available only here. Stop animation before input; with reduced motion show static numbered order and explicit optional playback. Do not make animation a barrier to leaving the session.
-2. **Copy:** complete static reference in a separate panel, empty normal canvas; no underlay or automatic animation.
+1. **Trace:** visible complete SVG guide under the ink inside the writing square; animate strokes in order once on entry, then allow tracing with the guide remaining. Replay available only here. Stop animation before input; with reduced motion show static numbered order and explicit optional playback. Do not make animation a barrier to leaving the session.
+2. **Copy:** complete static reference as a faint guide under the ink inside the writing square; no automatic animation. The guide is less prominent than Trace.
 3. **Recall:** same concealed presentation as review. Label “Learning · recall”; do not carry hidden SVG nodes, target text, or alt text into its accessible tree.
 
 Undo, Clear, and Check remain stable in position. Minimum target size is 44 × 44 CSS pixels. While a stroke is active or a save is pending, disable destructive attempt controls and Check. Check is disabled for an empty canvas. A small tap counts as a completed input stroke; the matcher decides if it is a valid short stroke. Do not grade on reaching an expected number of strokes.

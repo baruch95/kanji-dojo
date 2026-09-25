@@ -1,0 +1,40 @@
+.session-screen { width: min(100%, 1040px); margin: 0 auto; }
+.session-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 20px; }
+.session-top h1 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 4px; }
+.session-top .eyebrow { margin-bottom: 8px; }
+.session-cue { font-size: 1.2rem; margin: 0 0 8px; }
+.session-count { color: #536157; margin: 0; }
+.session-workspace { display: flex; justify-content: center; }
+.session-writing-column { width: min(100%, 560px); }
+.session-square { width: min(100%, 54dvh, 520px); aspect-ratio: 1; position: relative; border: 2px solid #c9d5c8; border-radius: 18px; overflow: hidden; background: #fffdf8; }
+.session-square::before,.session-square::after { content: ''; position: absolute; pointer-events: none; background: #e8eee5; }
+.session-square::before { top: 0; bottom: 0; left: 50%; width: 1px; }
+.session-square::after { top: 50%; left: 0; right: 0; height: 1px; }
+.session-square canvas,.session-guide { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.session-square canvas { z-index: 2; touch-action: none; user-select: none; }
+.session-guide { z-index: 1; pointer-events: none; }
+.session-guide path { fill: none; stroke: #244739; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.session-guide.animate path { stroke-dasharray: 1; stroke-dashoffset: 0; animation: stroke-guide .48s both; }
+@keyframes stroke-guide { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .session-guide.animate path { animation: none; } }
+.session-actions { width: min(100%, 54dvh, 520px); margin-top: 12px; }
+.secondary-action { min-height: 44px; border: 1px solid #b6c3b4; border-radius: 10px; background: #fffdf8; color: #254537; font: inherit; font-weight: 700; padding: 9px 16px; cursor: pointer; }
+.replay { margin: 12px 0; }
+.continue-action { min-height: 44px; margin-top: 12px; padding: 10px 18px; border: 0; border-radius: 10px; background: #254537; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+.session-screen button:focus-visible { outline: 3px solid #ae692d; outline-offset: 3px; }
+@media (max-width: 750px) { .session-top { margin-bottom: 10px; } .session-square,.session-actions { width: min(100%, 48dvh, 520px); } }
+.home-controls { background: #fffdf8; border: 1px solid #e4ddcf; border-radius: 20px; padding: 24px; }
+.quota-controls { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; }
+.quota-controls label,.settings-screen label { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.quota-controls select { min-height: 44px; min-width: 100px; padding: 8px; border: 1px solid #aab6a9; border-radius: 8px; background: white; font: inherit; }
+.check-option input { width: 20px; height: 20px; accent-color: #254537; }
+.queue-preview { margin: 20px 0; }
+.button-control { border: 0; cursor: pointer; margin: 0; font: inherit; }
+.button-control:disabled { opacity: .48; cursor: not-allowed; }
+.settings-screen { width: min(100%, 700px); }
+.settings-screen h1 { font-size: clamp(2.8rem, 7vw, 4.6rem); }
+.settings-screen label { margin: 18px 0; }
+.settings-screen input[type=range] { width: min(100%, 300px); }
+.danger-zone { margin-top: 36px; padding-top: 20px; border-top: 1px solid #d7d5ca; }
+.home-controls button:focus-visible,.settings-screen button:focus-visible,.home-controls select:focus-visible { outline: 3px solid #ae692d; outline-offset: 3px; }
+.footer-update { border: 0; padding: 0; background: none; color: #244739; text-decoration: underline; font: inherit; cursor: pointer; }

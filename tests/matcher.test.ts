@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calibrationDataset, parseDataset } from '../src/data/loader'
+import { calibrationDataset, curriculumDataset, parseDataset } from '../src/data/loader'
 import { evaluate, limitsForAccuracy } from '../src/matching/matcher'
 import type { CapturedStroke, Point } from '../src/domain/handwriting'
 
@@ -13,6 +13,15 @@ describe('M2 dataset and matcher', () => {
     expect(calibrationDataset.items).toHaveLength(10)
     expect(calibrationDataset.items.every((item) => item.strokeCount === item.strokes.length)).toBe(true)
     expect(() => parseDataset({ ...calibrationDataset, items: [...calibrationDataset.items.slice(0, 9), calibrationDataset.items[0]] })).toThrow(/uniqueness/)
+  })
+
+  it('validates the fifty-card curriculum and accepts every canonical reference', () => {
+    expect(curriculumDataset.items).toHaveLength(50)
+    expect(new Set(curriculumDataset.items.map((item) => item.id)).size).toBe(50)
+    for (const item of curriculumDataset.items) {
+      const strokes = item.strokes.map((reference) => capture(reference.samples))
+      expect(evaluate(item.strokes, strokes, 50)).toMatchObject({ kind: 'match', result: { accepted: true } })
+    }
   })
 
   it('keeps processing faults and empty input out of wrong-answer verdicts', () => {

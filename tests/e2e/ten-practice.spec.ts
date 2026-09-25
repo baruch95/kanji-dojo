@@ -15,7 +15,7 @@ const across: readonly [number, number][] = [[0.11, 0.47], [0.3, 0.46], [0.5, 0.
 const down: readonly [number, number][] = [[0.48, 0.12], [0.5, 0.25], [0.5, 0.5], [0.5, 0.75], [0.5, 0.91]]
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/#/session')
+  await page.goto('/#/lab')
   await expect(page.getByRole('heading', { name: 'Write 十' })).toBeVisible()
 })
 
@@ -85,5 +85,5 @@ test('developer calibration selector switches the reference and clears prior ink
   await expect(page.getByLabel('Writing surface for sun; day')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Check' })).toBeDisabled()
   await page.getByText('Calibration source gallery').click()
-  await expect(page.locator('.calibration-gallery figure')).toHaveCount(10)
+  await expect(page.locator('.calibration-gallery figure')).toHaveCount(50)
 })

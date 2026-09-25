@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { tenDefinition } from '../data/generated/ten'
-import { calibrationDataset } from '../data/loader'
+import { calibrationDataset, curriculumDataset } from '../data/loader'
 import { StrokeController } from '../drawing/StrokeController'
 import { evaluate, MATCHER_CONFIG_VERSION } from '../matching/matcher'
 import type { MatchResult, Point } from '../domain/handwriting'
@@ -182,7 +182,7 @@ export function TenPractice() {
       {import.meta.env.DEV && <details className="fixture-tool">
         <summary>Calibration source gallery</summary>
         <div className="calibration-gallery">
-          {calibrationDataset.items.map((item) => <figure key={item.id}>
+          {curriculumDataset.items.map((item) => <figure key={item.id}>
             <svg viewBox="0 0 109 109" role="img" aria-label={`${item.character}: ${item.strokeCount} stroke reference`}>
               {item.strokes.map((stroke) => <path key={stroke.index} d={stroke.pathD} pathLength={1} className="gallery-stroke" style={{ animationDelay: `${stroke.index * 0.7}s` }} />)}
             </svg>

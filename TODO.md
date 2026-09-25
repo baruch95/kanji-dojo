@@ -1,6 +1,6 @@
 # Active roadmap
 
-M0 is complete. M1's software slice is implemented; the owner tested on iPad Air M1 with MetaPen, while a detailed device protocol remains pending. M2's software foundation is implemented; real handwriting calibration remains pending. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
+M0 and the M1–M7 software slices are implemented. The owner tested the earlier 十 prototype on iPad Air M1 with MetaPen; the current flows need physical validation. Real handwriting calibration is deferred until after M7, and 50-card editorial review remains open. The M3–M7 work is local and uncommitted. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
 
 ## v0.1 required
 
@@ -15,34 +15,35 @@ M0 is complete. M1's software slice is implemented; the owner tested on iPad Air
 
 - [x] Build deterministic import/validation pipeline and freeze v1 content/matcher contracts.
 - [x] Implement resampling, feature checks, hard gates, and monotonic accuracy thresholds.
-- [ ] Calibrate on independently labeled real handwriting; meet the M2 gate or document a blocker.
+- [ ] Calibrate on independently labeled real handwriting; owner deferred this until after M7. Keep matcher provisional (Q-004).
 
 ### M3 — Learning and review UI
 
-- [ ] Implement and test the complete state transition table and no-answer-leak rendering.
-- [ ] Add assisted animation, visible-reference writing, recall, result states, and accessible controls.
+- [x] Implement and test the complete state transition table and no-answer-leak rendering.
+- [x] Add assisted animation, under-ink guide with stage fading, recall, result states, and accessible controls.
 
 ### M4 — FSRS and reliable persistence
 
-- [ ] Implement/pin FSRS adapter and verify Good/Again/relearning semantics.
-- [ ] Implement IndexedDB records, runtime validation, transactions, idempotency, concurrency checks, and reset.
-- [ ] Test storage errors, reload recovery, migrations, and two-tab stale submissions.
+- [x] Implement/pin FSRS adapter and verify Good/Again/relearning semantics.
+- [x] Implement IndexedDB records, runtime validation, transactions, idempotency, concurrency checks, and reset.
+- [x] Test transaction errors, reload recovery, schema creation, and stale two-connection submissions.
 
 ### M5 — Intentional sessions
 
-- [ ] Home counts; review limits 5/10/20/all; separate new quota 0/5/10; optional unfinished learning.
-- [ ] Deterministic queue; resume/end behavior; durable progress and honest summary.
+- [x] Home counts; review limits 5/10/20/all; separate new quota 0/5/10; optional unfinished learning.
+- [x] Deterministic queue; resume/end behavior; durable progress and honest summary.
 
 ### M6 — Full beginner curriculum
 
-- [ ] Import exactly 50 approved candidate kanji with verified cue metadata and attribution.
-- [ ] Review every prompt, stroke animation, and variant; expand handwriting coverage.
+- [x] Import exactly 50 pinned candidate KanjiVG sources with generated geometry and attribution.
+- [ ] Obtain competent-reader/owner approval of every cue and reading (Q-005).
+- [ ] Review every prompt, stroke animation, and variant with editorial evidence; expand natural handwriting coverage.
 
 ### M7 — Offline and GitHub Pages preparation
 
-- [ ] Add PWA, cache readiness, safe deferred updates, and scoped cache cleanup.
-- [ ] Verify production build under `/` and `/kanji-dojo/`, including offline reopen and hashes.
-- [ ] Prepare manual Pages workflow and operator instructions; do not enable/deploy without approval.
+- [x] Add PWA, cache readiness, safe deferred updates, and scoped cache cleanup.
+- [x] Verify local production builds under `/` and `/kanji-dojo/`, including offline reopen and pinned data hashes.
+- [x] Prepare manual Pages workflow and operator instructions; do not enable/deploy without approval.
 
 ### M8 — iPad polish and release evidence
 

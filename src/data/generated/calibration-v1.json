@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "datasetVersion": "calibration-10-v1",
-  "generatedByVersion": "m2-adapter-1",
+  "generatedByVersion": "m6-adapter-1",
   "sourceRevision": "422b5538595676da918c288a4230cb5e22a1ee7e",
   "items": [
     {
@@ -7873,7 +7873,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7886,7 +7886,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7899,7 +7899,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7912,7 +7912,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7925,7 +7925,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7938,7 +7938,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7951,7 +7951,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7964,7 +7964,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7977,7 +7977,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     },
     {
@@ -7990,7 +7990,7 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "attribution": "KanjiVG / Ulrich Apel",
       "transformations": "StrokePaths only; normalized 109-square path samples and lengths",
-      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending M6",
+      "metadataVerificationSource": "docs/dataset-spec.md candidate table; editorial review pending",
       "metadataVerificationDate": null
     }
   ]

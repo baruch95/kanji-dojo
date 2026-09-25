@@ -21,6 +21,8 @@ Baseline dated 2026-09-25. “Accepted baseline” means a concrete implementati
 | D-15 | Unresolved owner choice | No original-code license has been selected. Preserve third-party licenses and avoid an unsupported open-source claim. | sources-and-licensing.md; Q-003 |
 | D-16 | Owner confirmed, 2026-09-25 | Publish the M1 one-kanji prototype to a new GitHub repository and GitHub Pages before the full M7/M8 release gates. Label it as a prototype; do not claim offline support, calibrated grading, saved progress, or physical iPad validation. Use a manually dispatched Pages workflow. | deployment-and-offline.md; README.md |
 | D-17 | Provisional implementation, 2026-09-25 | The M2 ten-character adapter uses the same pinned KanjiVG revision as M1 and provisional cues copied from the dataset-spec candidate table. `calibration-10-v1` and `m2-provisional-1` identify the dataset and matcher separately. The visible-reference developer gallery and fixture exporter cover ten characters; editorial review and independently labeled calibration remain required before release. | dataset-spec.md; handwriting-spec.md; matcher-calibration.md; Q-004 |
+| D-18 | Owner confirmed, 2026-09-25 | Defer formal handwriting calibration while implementing through M7. Keep the matcher provisional and disclose unmeasured accuracy. This does not establish the M2 or release accuracy gate. | handwriting-spec.md; matcher-calibration.md; Q-004 |
+| D-19 | Owner direction, 2026-09-25 | Put the SVG guide beneath ink and fade it by learning stage: Trace visible, Copy faint, Recall/Review absent. This replaces the separate Copy reference panel; concealed stages retain the no-target rule. | product-spec.md |
 
 ## Highest risks and response
 

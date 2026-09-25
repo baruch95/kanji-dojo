@@ -20,4 +20,5 @@ jobs:
       - run: npm run data:validate
       - run: npx playwright install --with-deps chromium webkit
       - run: npm run test:e2e
+      - run: npm run test:pwa
       - run: npm run build

@@ -14,7 +14,7 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["vite/client", "vitest/globals"]
+    "types": ["vite/client", "vite-plugin-pwa/client", "vitest/globals"]
   },
   "include": ["src", "tests", "vite.config.ts", "vitest.config.ts", "base-path.ts"]
 }

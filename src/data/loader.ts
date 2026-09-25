@@ -1,4 +1,5 @@
 import rawDataset from './generated/calibration-v1.json'
+import rawCurriculum from './generated/curriculum-v1.json'
 import type { KanjiDefinition, Point, ReferenceStroke } from '../domain/handwriting'
 
 type RecordValue = Record<string, unknown>
@@ -50,8 +51,8 @@ function item(value: unknown): KanjiDefinition {
 }
 
 /** Parse checked-in generated content before exposing it to application code. */
-export function parseDataset(value: unknown): KanjiDataset {
-  if (!record(value) || value.schemaVersion !== 1 || !nonempty(value.datasetVersion) || !nonempty(value.generatedByVersion) || !nonempty(value.sourceRevision) || !Array.isArray(value.items) || value.items.length !== 10 || !Array.isArray(value.provenance) || value.provenance.length !== 10) return fail('wrapper')
+export function parseDataset(value: unknown, expectedCount = 10): KanjiDataset {
+  if (!record(value) || value.schemaVersion !== 1 || !nonempty(value.datasetVersion) || !nonempty(value.generatedByVersion) || !nonempty(value.sourceRevision) || !Array.isArray(value.items) || value.items.length !== expectedCount || !Array.isArray(value.provenance) || value.provenance.length !== expectedCount) return fail('wrapper')
   const items = value.items.map(item)
   const provenance = value.provenance.map((entry: unknown): Provenance => {
     if (!record(entry) || !['id', 'upstreamUrl', 'sourceRevision', 'sourceFilename', 'sha256', 'licenseId', 'licenseUrl', 'attribution', 'transformations', 'metadataVerificationSource'].every((key) => nonempty(entry[key])) || (entry.metadataVerificationDate !== null && !nonempty(entry.metadataVerificationDate))) return fail('provenance')
@@ -67,3 +68,4 @@ export function parseDataset(value: unknown): KanjiDataset {
 }
 
 export const calibrationDataset = parseDataset(rawDataset)
+export const curriculumDataset = parseDataset(rawCurriculum, 50)

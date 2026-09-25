@@ -4,19 +4,8 @@ import { svgPathProperties } from 'svg-path-properties'
 
 export const SOURCE_REVISION = '422b5538595676da918c288a4230cb5e22a1ee7e'
 export const DATASET_VERSION = 'calibration-10-v1'
-export const GENERATOR_VERSION = 'm2-adapter-1'
-export const SOURCE_HASHES = Object.freeze({
-  '04e00.svg': '3dd10544e685a2e06184ca52ac2df5d881d4b92b566b94ada976f48d9e3625e4',
-  '04e09.svg': '0dbc281bfc51519d2f720e2c105708f4a522951c90209854352a7d2ce221cc85',
-  '04e8c.svg': '1c7d7dc8debe863606adc2669eac3daf0adc17b10442bd3d370a0c2697dc52a7',
-  '04eba.svg': '0022556d593c1edf00e707f9c0bca1f1b6a531cf0a3a95ccade8931c31b4148d',
-  '05341.svg': '3a949bec637d519d51c89d2720cc4db11d7e645f4573b93aee8ecf0e316e9daa',
-  '05927.svg': 'f0c66786a7c60ef02d7309ff90b4580c3ed0034dc629cedd0f4e2e5c06549eac',
-  '065e5.svg': 'e2b461dad3b8c2a7bb1a5b9318e83d90f44d9f62d903d4a27e5992e6469773b1',
-  '06708.svg': 'c577d9e0fb74f01e63ebfa111c1f29834808d375391e32c2a7e0ee8592ae5524',
-  '06728.svg': '8ad9a1fa18fe9d0910db9686e7b05f11784650b46aec4795ac67696cc5197acd',
-  '06c34.svg': '17025cc265555ea3172b361fee740e58f178c7ed61fb7d1c7124175358f2d41e',
-})
+export const GENERATOR_VERSION = 'm6-adapter-1'
+export const CURRICULUM_VERSION = 'curriculum-50-v1-provisional'
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
 const number = (value) => typeof value === 'number' && Number.isFinite(value)
@@ -79,8 +68,9 @@ export function parseReference(xml, entry) {
   return { viewBox, strokes }
 }
 
-export function generateDataset(metadata, sources) {
-  if (!Array.isArray(metadata) || metadata.length !== 10) throw new Error('Expected ten metadata records')
+export function generateDataset(metadata, sources, sourceHashes, kind = 'calibration') {
+  const expectedCount = kind === 'curriculum' ? 50 : kind === 'calibration' ? 10 : 0
+  if (!Array.isArray(metadata) || metadata.length !== expectedCount) throw new Error(`Expected ${expectedCount} metadata records`)
   const characters = new Set()
   const orders = new Set()
   const ids = new Set()
@@ -93,7 +83,7 @@ export function generateDataset(metadata, sources) {
     orders.add(entry.order)
     const xml = sources.get(entry.source)
     if (!xml) throw new Error(`Missing source ${entry.source}`)
-    if (sha256(xml) !== SOURCE_HASHES[entry.source]) throw new Error(`Pinned source hash changed: ${entry.source}`)
+    if (sha256(xml) !== sourceHashes[entry.source]) throw new Error(`Pinned source hash changed: ${entry.source}`)
     const id = `u${entry.character.codePointAt(0).toString(16).padStart(4, '0')}`
     if (ids.has(id)) throw new Error('Duplicate ID')
     ids.add(id)
@@ -104,7 +94,7 @@ export function generateDataset(metadata, sources) {
       sourceRevision: SOURCE_REVISION, sourceFilename: entry.source, sha256: sha256(xml),
       licenseId: 'CC-BY-SA-3.0', licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
       attribution: 'KanjiVG / Ulrich Apel', transformations: 'StrokePaths only; normalized 109-square path samples and lengths',
-      metadataVerificationSource: 'docs/dataset-spec.md candidate table; editorial review pending M6', metadataVerificationDate: null,
+      metadataVerificationSource: 'docs/dataset-spec.md candidate table; editorial review pending', metadataVerificationDate: null,
     })
     return {
       id, character: entry.character, curriculumOrder: entry.order, promptMeaning: entry.meaning,
@@ -112,5 +102,5 @@ export function generateDataset(metadata, sources) {
       strokeCount: geometry.strokes.length, viewBox: geometry.viewBox, strokes: geometry.strokes, provenanceId,
     }
   })
-  return { schemaVersion: 1, datasetVersion: DATASET_VERSION, generatedByVersion: GENERATOR_VERSION, sourceRevision: SOURCE_REVISION, items, provenance }
+  return { schemaVersion: 1, datasetVersion: kind === 'curriculum' ? CURRICULUM_VERSION : DATASET_VERSION, generatedByVersion: GENERATOR_VERSION, sourceRevision: SOURCE_REVISION, items, provenance }
 }

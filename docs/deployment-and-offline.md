@@ -1,6 +1,6 @@
 # Static hosting and offline specification
 
-The owner explicitly requested publication of the M1 prototype on 2026-09-25 (D-16). A **manual** GitHub Pages workflow is now prepared for that limited prototype. The PWA, offline lifecycle, and full release checks below remain planned for M7/M8; early publication does not satisfy them.
+The owner published the M2 prototype on 2026-09-25. M3–M7 PWA and offline software are implemented locally, with a **manual** GitHub Pages workflow prepared. The live Pages revision is still M2 until a later approved commit, push, and deployment. The M8 physical-device, editorial, and handwriting gates remain open.
 
 ## Base path and navigation
 
@@ -42,11 +42,11 @@ Service workers require a secure context (localhost is suitable on the developme
 
 ## Prepared GitHub Actions workflow
 
-The early prototype workflow at `.github/workflows/deploy-pages.yml` uses `workflow_dispatch` only. It checks out the approved revision, sets up the pinned Node version, installs with `npm ci`, runs available M1 checks and deterministic source generation, builds for `/kanji-dojo/`, uploads `dist/`, and deploys through pinned GitHub Actions. M2 data validation and M7 PWA/offline gates are not yet available. No push-triggered publish job exists.
+The workflow at `.github/workflows/deploy-pages.yml` uses `workflow_dispatch` only. It checks out the selected revision, sets up the pinned Node version, installs with `npm ci`, runs typecheck/lint/unit/data/browser/PWA gates, builds for `/kanji-dojo/`, uploads `dist/`, and deploys through pinned GitHub Actions. The PWA gate builds and tests `/` and `/kanji-dojo/` locally, including offline reopen and a deferred-update scenario. No push-triggered publish job exists.
 
 Set least required workflow/job permissions: build checkout read access; deployment `pages: write` and `id-token: write`. Use the `github-pages` environment and suitable concurrency to avoid overlapping publishes. Configure the exact repository base explicitly, including `/` for user/organization root repositories or custom-domain deployment. Do not infer an unknown remote/owner from the local folder name.
 
-## Operator runbook (after implementation and approval)
+## Operator runbook (after approval)
 
 1. Confirm all release gates and the actual repository/branch/destination. Build and inspect the intended artifact locally.
 2. Ask separately for any missing commit and push approval; before push show branch, exact commits, and destination remote. Do not create a remote or GitHub repository without authorization.

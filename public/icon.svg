@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Kanji Dojo icon">
+  <rect width="512" height="512" rx="108" fill="#244739"/>
+  <rect x="54" y="54" width="404" height="404" rx="72" fill="#f5f1e8"/>
+  <path d="M256 76v360M76 256h360" fill="none" stroke="#d4dfd2" stroke-width="5"/>
+  <text x="256" y="349" text-anchor="middle" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="260" font-weight="700" fill="#244739">文</text>
+</svg>

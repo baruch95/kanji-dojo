@@ -71,3 +71,16 @@ Blocking: M2 calibration gate and release.
 Independent work that can continue: Data conversion, schema validation, pure matcher tests, and downstream pure domain work using the provisional versioned contract.
 Answer (Astra/owner, date): Pending.
 Follow-through / changed documents / validation: Pending fixture collection and report.
+
+## Q-005 — Fifty-card editorial review
+
+Status: OPEN
+Raised by / date: Codex M3–M7 implementation, 2026-09-25
+Milestone / requirements / files: M6; R-02, R-14; `data/metadata.json`, `docs/dataset-spec.md`, `docs/dataset-review.md`
+Question and evidence: The owner asked for implementation through M7. All 50 proposed characters and cues are available in the project candidate table, but that table explicitly says they are not a verified dictionary extract. A competent Japanese reader/owner review of ambiguous cues and selected readings is still required before a release claim.
+Options and tradeoffs: Continue with the provisional candidate cues for development and request editorial sign-off before release, or replace individual cues after review with documented sources and regenerate the dataset. Claiming completed editorial review without evidence would misstate the M6 gate.
+Recommendation / temporary assumption: Build and test all 50 reference paths now, label cues provisional, and hold the editorial release gate until a reviewer signs off. Keep IDs stable when cues change.
+Blocking: M6 editorial gate and release claim; software implementation can continue.
+Independent work that can continue: FSRS, persistence, sessions, 50-vector generation, PWA, and browser tests.
+Answer (Astra/owner, date): Pending.
+Follow-through / changed documents / validation: Pending editorial review record.
