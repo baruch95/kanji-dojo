@@ -1,6 +1,6 @@
 # Primary sources and licensing plan
 
-Sources inspected during planning on 2026-09-25. References document upstream facts; our product policies, thresholds, state machine, and architecture are project decisions. Recheck versions and license files when dependencies/assets are actually added. No external dataset or dependency is bundled in this planning baseline.
+Sources inspected during planning on 2026-09-25. References document upstream facts; our product policies, thresholds, state machine, and architecture are project decisions. M1 now includes one pinned KanjiVG SVG and its upstream license; exact revision, checksums, and transformations are in [`data/sources/kanjivg/NOTICE.md`](../data/sources/kanjivg/NOTICE.md). Recheck versions and license files as more dependencies/assets are added.
 
 | Source | What was verified | Implementation consequence |
 | --- | --- | --- |

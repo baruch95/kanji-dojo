@@ -4,7 +4,7 @@ A focused iPad writing trainer: see an English meaning and kana reading, then wr
 
 ## Current status
 
-**Planning baseline — application not implemented.** This repository contains the specification and execution plan for v0.1. No dependencies, application code, dataset assets, automated tests, or deployment workflow have been installed or created. Local Git is initialized; no commit or remote is required to begin implementation.
+**M1 prototype; physical-device gate pending.** The app has a one-kanji 十 practice lab with visible reference, pointer drawing, Undo/Clear/Check, and a basic ordered matcher. It does not save attempts or schedule reviews. Natural handwriting quality and Apple Pencil/compatible-stylus behavior have not been validated on a real iPad. Learning, full content, progress storage, and offline support remain future milestones.
 
 The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS reviews, local progress, and offline practice on a static GitHub Pages site. Screenshots and measured browser support will be added when there is a working application.
 
@@ -15,9 +15,9 @@ The intended release is `0.1.0`: 50 beginner kanji, three-stage learning, FSRS r
 3. Take the first uncompleted milestone in [TODO.md](TODO.md), using [implementation plan](docs/implementation-plan.md) for its deliverables and acceptance gate.
 4. Record questions and doubts in [questions for astra.md](questions%20for%20astra.md). Astra will review that file when asked to return to this project; no automatic monitoring is configured.
 
-Suggested first implementation assignment:
+Suggested next validation assignment:
 
-> Read AGENTS.md and the planning documents. Implement M0 only, preserving the documentation. Run its acceptance checks, update TODO.md and CHANGELOG.md, and provide the required handoff. Record uncertainties in questions for astra.md. Do not commit, push, or deploy without the required approval.
+> Run the M1 physical iPad protocol in `docs/test-plan.md` with Apple Pencil and a compatible stylus, recording the exact device, OS, input behavior, and natural 十 attempts. Q-002 remains open until there is real hardware evidence. Do not commit, push, or deploy without the required approval.
 
 ## Documentation map
 
@@ -38,9 +38,9 @@ Suggested first implementation assignment:
 
 ## Installation and development
 
-**The commands below are the required interface for milestone M0, not commands that work yet.** M0 must create `package.json`, a lockfile, and the scripts before declaring setup complete.
+Use Node **24.21.0 LTS** (`.nvmrc`), npm, and the repository lockfile.
 
-Use TypeScript, React, Vite, and npm. M0 selects a currently supported Node LTS compatible with the selected dependencies, pins it in `.nvmrc` and `package.json`, and records exact package versions in `package-lock.json`. Do not depend on the planning machine's installed Node version.
+Package versions are exact in `package.json` and `package-lock.json`. The development machine may have another Node version; use the pinned runtime for reproducible checks.
 
 ```sh
 npm ci
@@ -50,9 +50,11 @@ npm run lint
 npm run test
 npm run build
 npm run preview -- --host 0.0.0.0
+npx playwright install chromium webkit
+npm run test:e2e
 ```
 
-`test` must run once and exit; expose watch mode separately. Browser test setup and `npm run test:e2e` arrive in M1. Data generation/validation commands arrive in M2. See [test plan](docs/test-plan.md) for command availability by milestone. Ordinary drawing can be tested over LAN HTTP; PWA/device offline validation needs a trusted HTTPS origin.
+`test` runs once and exits; `npm run test:watch` is separate. `test:e2e` runs Chromium and WebKit browser flows after their binaries are installed. The developer-only fixture export is inside the practice lab when running `npm run dev`; it never uploads handwriting. The pinned 十 geometry can be regenerated with `node scripts/generate-ten.mjs`. Full data generation/validation commands arrive in M2. Ordinary drawing can be tested over LAN HTTP; PWA/device offline validation needs a trusted HTTPS origin.
 
 ## Architecture overview
 
@@ -62,7 +64,7 @@ The first slice uses one kanji, **十**, to prove drawing and order checking bef
 
 ## Dataset and licensing
 
-KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. No KanjiVG files are bundled yet. Meanings and kana prompts require separate editorial verification; KanjiVG is not a reading dictionary.
+KanjiVG is the selected source of ordered vector strokes, subject to the pinned import and attribution process in [sources and licensing](docs/sources-and-licensing.md). Its stroke assets are CC BY-SA 3.0; transformed assets retain attribution and license information. The M1 subset includes the pinned 十 source and [its notice](data/sources/kanjivg/NOTICE.md). Attribution is available under Settings → About data sources. Meaning and kana cues remain provisional until editorial review; KanjiVG is not a reading dictionary.
 
 The project's own software license is not yet selected. Do not add a license on the owner's behalf or assume a dataset license determines the application code license.
 
@@ -74,13 +76,13 @@ After a successful online load and confirmed offline cache readiness, the instal
 
 ## Build and GitHub Pages
 
-M0 establishes a static build in `dist/`. M7 adds a manual Pages workflow and tests both `/` and `/kanji-dojo/`. The required subpath build command is:
+M0 established a static build in `dist/`. The owner requested early publication of the M1 prototype, so `.github/workflows/deploy-pages.yml` is a manually dispatched Pages workflow. The repository subpath build command is:
 
 ```sh
 VITE_BASE_PATH=/kanji-dojo/ npm run build
 ```
 
-This environment variable must be explicitly read and validated by the future Vite configuration. Navigation uses hash routes. [Deployment instructions](docs/deployment-and-offline.md) define manifest paths, service-worker scope, verification, and owner approval before deployment. Do not enable automatic publishing on push.
+`VITE_BASE_PATH` is validated by Vite configuration. Navigation uses hash routes. To test a subpath build locally, mount the contents of `dist/` at that path on a static server; Vite preview serves `dist/` at its root. [Deployment instructions](docs/deployment-and-offline.md) distinguish this early prototype from the future PWA and full release verification. The Pages workflow has no automatic push trigger.
 
 ## Limitations and future integration
 

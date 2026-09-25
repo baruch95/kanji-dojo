@@ -2,6 +2,8 @@
 
 The task is matching a known target, not recognizing arbitrary kanji. Reference lettering is not a pixel-perfect definition of acceptable handwriting. The baseline algorithm below is implementable but **not calibrated**; real examples determine whether it meets the release gate.
 
+M1 implements a smaller `m1-basic-1` proof of concept for 十: exact count, degenerate marks, indexed order and direction checks, endpoints, length, and mean sampled trajectory. It does not implement the complete provisional threshold table or structural checks below; those belong to M2. M1 browser tests prove input flow and clear reversals/swaps, not natural handwriting accuracy.
+
 ## Pointer lifecycle
 
 1. Apply `touch-action: none` and selection suppression to the writing surface before pointerdown. Keep normal touch/zoom behavior elsewhere; do not disable viewport zoom globally. Pointer Events defines gesture handling through [touch-action](https://www.w3.org/TR/pointerevents/).

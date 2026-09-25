@@ -1,6 +1,6 @@
 # Static hosting and offline specification
 
-No deployment configuration exists yet. M0 adds base-path support; M7 adds PWA and a **manual** GitHub Pages workflow. Preparing files does not authorize enabling or running deployment.
+The owner explicitly requested publication of the M1 prototype on 2026-09-25 (D-16). A **manual** GitHub Pages workflow is now prepared for that limited prototype. The PWA, offline lifecycle, and full release checks below remain planned for M7/M8; early publication does not satisfy them.
 
 ## Base path and navigation
 
@@ -42,7 +42,7 @@ Service workers require a secure context (localhost is suitable on the developme
 
 ## Prepared GitHub Actions workflow
 
-M7 creates `.github/workflows/deploy-pages.yml` with `workflow_dispatch` only. It checks out the approved revision, sets up the pinned Node version, installs with `npm ci`, runs required checks/data validation, builds with the repository base path, uploads `dist/`, and uses the supported Pages deployment actions. Pin reviewed action versions/SHAs at implementation time. No push-triggered publish job.
+The early prototype workflow at `.github/workflows/deploy-pages.yml` uses `workflow_dispatch` only. It checks out the approved revision, sets up the pinned Node version, installs with `npm ci`, runs available M1 checks and deterministic source generation, builds for `/kanji-dojo/`, uploads `dist/`, and deploys through pinned GitHub Actions. M2 data validation and M7 PWA/offline gates are not yet available. No push-triggered publish job exists.
 
 Set least required workflow/job permissions: build checkout read access; deployment `pages: write` and `id-token: write`. Use the `github-pages` environment and suitable concurrency to avoid overlapping publishes. Configure the exact repository base explicitly, including `/` for user/organization root repositories or custom-domain deployment. Do not infer an unknown remote/owner from the local folder name.
 

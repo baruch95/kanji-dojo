@@ -6,6 +6,9 @@ Meaningful product and architecture changes are recorded here. The first applica
 
 ### Added
 
+- Manual GitHub Pages workflow for the owner-requested M1 prototype publication; deployment remains distinct from the v0.1 release gates.
+- M1 software slice: pinned KanjiVG 十 source and attribution, generated normalized stroke reference, visible-reference writing lab, pointer capture and ink controls, a basic order/direction/shape comparison, local fixture export, and Chromium/WebKit browser tests. Physical iPad validation remains open.
+- M0 development foundation: pinned Node 24 LTS and exact dependencies, strict React/TypeScript/Vite shell, hash navigation, validated hosting base path, accessible Home/Session/Settings status screens, lint/unit/build scripts, and checks-only CI.
 - Planning baseline for an iPad writing-only kanji trainer: product requirements, module/data contracts, deterministic learning and FSRS policy, handwriting validation and calibration, curriculum, offline deployment, and release gates.
 - Milestone roadmap and implementation-agent instructions, including the shared `questions for astra.md` review queue and explicit approval rules for commits, pushes, and deployment.
 - Preserved original project brief and primary technical/licensing references.

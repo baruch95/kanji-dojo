@@ -19,6 +19,7 @@ Baseline dated 2026-09-25. “Accepted baseline” means a concrete implementati
 | D-13 | Accepted baseline | Exactly 50 candidate beginner characters, all reviewed before release. Canonical KanjiVG sequence only initially. | dataset-spec.md |
 | D-14 | Deferred | No backup/import UI in v0.1; warn accurately about browser-local storage. Stable IDs and validated codecs support a later backup feature. | data-contracts.md |
 | D-15 | Unresolved owner choice | No original-code license has been selected. Preserve third-party licenses and avoid an unsupported open-source claim. | sources-and-licensing.md; Q-003 |
+| D-16 | Owner confirmed, 2026-09-25 | Publish the M1 one-kanji prototype to a new GitHub repository and GitHub Pages before the full M7/M8 release gates. Label it as a prototype; do not claim offline support, calibrated grading, saved progress, or physical iPad validation. Use a manually dispatched Pages workflow. | deployment-and-offline.md; README.md |
 
 ## Highest risks and response
 

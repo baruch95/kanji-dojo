@@ -4,7 +4,7 @@
 
 React + TypeScript strict + Vite, npm lockfile, CSS, native Pointer Events, Canvas 2D for ink, SVG for references, IndexedDB behind a small repository, `ts-fsrs` for scheduling, and `vite-plugin-pwa` for static offline caching. Use Vitest for pure logic, Testing Library for UI behavior, and Playwright Chromium/WebKit for browser flows.
 
-M0 pins compatible stable releases and a supported Node LTS. `idb` is a reasonable thin IndexedDB helper; adopt it when M4 starts. A small SVG-path geometry library may be selected in M2 after license/accuracy review. Prefer it over writing an entire SVG parser. No router dependency is needed for three hash routes. No global state library or CSS framework is required.
+M0 pins compatible stable releases and a supported Node LTS. M1 uses pinned `svg-path-properties` (ISC) at build time to sample the 十 path; M2 reviews its approximation and license before adopting it for the full dataset. `idb` is a reasonable thin IndexedDB helper; adopt it when M4 starts. No router dependency is needed for three hash routes. No global state library or CSS framework is required.
 
 ## Dependency map
 

@@ -1,20 +1,14 @@
 # Active roadmap
 
-The planning baseline is complete; implementation has not started. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
+M0 is complete. M1's software slice is implemented; its physical iPad gate is pending. Detailed work packets and gates: [implementation plan](docs/implementation-plan.md). Take milestones in dependency order. Mark individual items as they finish; once a milestone is complete, summarize it in `CHANGELOG.md` and remove its completed checklist from this active file.
 
 ## v0.1 required
 
-### M0 — Development foundation
-
-- [ ] Pin supported Node LTS and dependencies; create React/TypeScript/Vite scaffold without replacing these documents.
-- [ ] Establish strict types, lint, unit testing, build scripts, and root/subpath configuration.
-- [ ] Render a minimal accessible shell and set up checks-only CI.
-
 ### M1 — One-kanji vertical slice and device risk
 
-- [ ] Pin and attribute one KanjiVG source for 十; expose internal reference geometry.
-- [ ] Capture/render individual strokes; implement Undo/Clear/Check and basic ordered comparison.
-- [ ] Add browser tests and a developer-only local stroke-fixture capture tool.
+- [x] Pin and attribute one KanjiVG source for 十; expose internal reference geometry.
+- [x] Capture/render individual strokes; implement Undo/Clear/Check and basic ordered comparison.
+- [x] Add browser tests and a developer-only local stroke-fixture capture tool.
 - [ ] Verify real iPad input with Apple Pencil; record device/OS/results and compatible-stylus evidence where available.
 
 ### M2 — Dataset adapter and matcher
@@ -59,7 +53,7 @@ The planning baseline is complete; implementation has not started. Detailed work
 
 ## Bugs
 
-No implementation exists yet; no runtime bugs have been confirmed. Add reproducible bugs here with requirement/test references.
+The M1 practice prototype has no confirmed runtime bugs. Add reproducible bugs here with requirement/test references.
 
 ## Improvements (not v0.1 blockers)
 
